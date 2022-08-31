@@ -1,0 +1,85 @@
+history -c command
+
+git config --global user.name "Tu nombre"
+git config --global user.email "Tu correo"
+
+para cerrar sesion
+git config --global --unset user.email "colocar email"
+
+git config --global --list
+
+ir a la carpeta donde esta el .json con los datos para levantar el server local
+
+json-server --watch db.json
+
+________________________
+
+CREAR NUEVO PROYECTO
+ng new formulariosApp
+
+se va a utilizar bootstrap porque usar angular prime ng agrega una capa de complegidad que no pinta hacerlo 
+para este ejercicio
+
+y para agregar el bootstrap al proyecto se agrega 	
+<link href=https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css
+en el index html
+
+
+se puede generar de forma automatica cuando se crea el proyecto el tema del archivo app-routing.module.ts
+que importa El Routes y las exporta para que los demas modulos lo puedan utilizar
+y en el app-moudule se lo importa para utilizarlo
+
+se crea un modulo para shared y se crea su caperta por defecto, este modulo va tener componentes que se van a compartir
+con la aplicacion
+
+ng g m shared
+
+se crea tambien en componente para el menu latearl dentro de la carpeta shared, si el archivo test ni del estilo
+ng g c shared/sidemenu --skipTests -is
+
+y se lo importa a este modulo en el app.module
+
+y en el modulo de shared
+hay que exportar componente sideMenuComponet
+para que sea publico y se lo pueda llamar de otro lado
+
+
+para que lo podamos ver desde el app.component.html
+
+en el body  de index.html se llama la clase container de bootstrap, agrega un espacio a la izquierda
+
+en el app componente 
+se crea un div y se ponen la clase row mt-5 para dejar un margen con la parte de arriba
+y para separa por columnas de a 4 con la clase col-4
+
+se crea un espacio donde voy a estar cambiando las rutas
+clas col para que tome todo el espacio restante
+y se coloca el componente router-outlet
+para renderizar las respectivas rutas
+
+se puede ver todas las banderas de algular cli para crear cosas o
+dicho de otra forma comandos, desde la terminar de visual code
+ng g m --help
+
+para generar un modulo para routing de forma autmotaica creado en la carpeta template
+
+ng g m template --routing
+
+y nos crea 2 archivos 
+el template.module.ts
+y el template-routing.module.ts
+
+
+el template module ts importa el './template-routing.module'
+el otro archivo que se creo
+
+se crea otro igual pero para los reactive
+
+ng g m reactive --routing
+
+en template se crean los formularios creados por aproximacion por template
+y en la carpeta reactive todo los relacionado a los formularios reactivos
+
+
+
+
