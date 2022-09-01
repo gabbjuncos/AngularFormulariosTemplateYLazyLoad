@@ -80,6 +80,32 @@ ng g m reactive --routing
 en template se crean los formularios creados por aproximacion por template
 y en la carpeta reactive todo los relacionado a los formularios reactivos
 
+______________
+
+se crea el componentes basicos en reactive
+
+ng g c reactive/basicos --skipTest -is
+
+actualiza el reactive module y ademas no crea los archivos css y de pruebas spec
+
+tambien se crea otro componentes para dinamicos y para switches
+ng g c reactive/dinamicos
+ng g c reactive/switches
+en switches vamos a tener radios, botones, lo que se maneja en los formularios
+
+se definen las rutas para estos componentes, en el reactive-routing.module
+en la const routes se definen
+se coloca la url como quiero que salga y el componente asociado
+luego para la ruta que sea cualquiercosa que hago referencia a eso con **
+hago que redirecciones con redirectTo a la pagina basicos
+porque si pongo '' caeria a la lista
 
 
+se crean los mismo componentes para el componente TEMPLATE
+
+ng g c template/basicos
+ng g c template/dinamicos
+ng g c template/switches
+
+min 4:23
 
