@@ -107,5 +107,99 @@ ng g c template/basicos
 ng g c template/dinamicos
 ng g c template/switches
 
-min 4:23
+en template-routing.module.ts en la propiedad Routes se definen las path
+se define en string el nombre del path y al nombre del componente al que quiero asociar
+para mostrar 
+al basicos que asocio es para los templates
+
+y cualquier otro path me deberia redireccionar a basicos
+{ path:'**', redirectTo: 'basicos'},
+
+implementar lazy load
+desde el routing module general
+
+para el lazy load de  template
+llamo al loadChuildren y se importa el modulo correspondiente
+template.module
+y luego que se resuelve eso le digo que devuelva el template Module
+
+_________________
+
+SIDE MENU
+
+sidemenu.component.html
+
+al ponerle active en la clase, se para que se pinte de azul la opcion activa de la
+ruta en la que me encuentre
+
+y le ponemos el routerLink asociada a la url para que cambie de path al hacerle click
+
+hasta el momento no funciona
+hay que importarlo desde el shared.module
+se importa en el routerModule
+
+en el sidemenu.ts.component crea una interface para el Menu
+
+la interface va a tener un texto y una ruta a la que se quiere navegar
+tambien podria ponerse en otro archivo esta interfaz
+
+y se lo define para definir el texto a mostrar y la url correspondiente para
+dirigir
+
+las rutas que se ponen aca tienen que hacer macht con las turas que tengo
+definidas en el app routing module
+
+y con un ng form se puede crear ahora de una manera mas facil las opciones del menu
+
+se agrega  routerLinkActive="active" para que se pinte de azul la opcion marcada
+
+y se hace lo mismo para las opciones del menu de la otra pagina Reactive
+
+y se agrega a la clase un mt-3 , separacion con lo de arriba 3
+
+_____________________________
+
+TEMPLATE DISEÑO DEL FORMULARIO
+
+formulario por template se le dice a angular que maneje todo el formulario de 
+manera automatica , la logica va a estar en el html, campos, etc
+
+y los formualarios reactivo, procura que sean lo mas basicos posibles
+y que todo el trabajo pesado este en el componente de typescript ts
+
+recomienda utilizar formularios reactivos porque se tiene mas control al respecto
+
+pero cuando los formulario son sencillos por ejemplo manejar un input
+el formulario por template esta bien
+
+se arranca por basicos
+
+basicos.component.html
+
+en la doc se ve como hacer un form control
+
+la clase mb-3 una distancia del cuadro del input seria
+la clase col-sm-3 usar el espacio disponible
+en la div de sm 9, ocupa el resto del espacion
+
+por que bootstrap trabaja con row de 12 columnas, 9+3 12
+seria todo el espacio pra el template basico serian 12 columnas
+
+https://getbootstrap.com/docs/5.2/forms/form-control/
+
+con la clase de bootstrap float-end lo manda a la derecha 
+
+el refresco de la pantalla al darle en guardar esta hecho de la forma tadicionarl
+del post
+pero angular nos permite tomar los datos directamente sin refrescar y no perder
+la info, ademas de hacer de una las validaciones
+
+pueden aparecer warning en amarrillo porque no encuentra las clases 
+y puede ser porque estoy llamando a bootstrap desde cnd con el link
+y por eso no encuentra las clases
+para sacarlo se podria hacer desactivando la html suport de las 
+aplicaciones instaladas en el visual code
+
+_____________________________
+
 
