@@ -202,4 +202,140 @@ aplicaciones instaladas en el visual code
 
 _____________________________
 
+para la aproximacion por template tenemos que importar el formModule
+como lo vamos a usar nomas para el template module , lo ponemos ahi nomas
+si lo quisieramos usar de forma general lo hariamos desde el app.module
+
+al precionar el guardar, sigue haciendo el refresco, eso es porque todavia
+no esta siendo parte del bundle, pero deberia ya serlo, asi que reiniciamos el
+ng serve, 
+esto hace que se lediga a angular que tome el control del formulario
+
+se agrega al form basicos html
+el ngsubmit con el metodo guardar definido en basicos ts
+
+como estamos haciendo por template el submit se hace desde el html
+
+se crea la propiedad #miFormulario como referencia local, en el formulario y se le dice que va a ser dle tipo
+ngForm, enlaza la referencia ngForm a la variable #miFormulario que se esta creando
+y en el metodo guardar se lo manda con la propiedad al formulario
+
+y al hacer el console log se puede ver por consola las propiedades del usuario
+la propiedad pristine en true signifca que el formulario no fue manipulado
+desde que se le presento al usuario
+touched en false, significa que no se ha tocado el formulario
+y tiene varias cosas mas 
+
+guardar(miFormulario.value)
+
+al tipo para completar en guardar y no dejarlo como any, lo podemos ver en la consola
+al hacerle el .log de lo que le enviamos como parametro desde el html
+y de esa forma tengo acceso a todas las propiedades y metodos
+
+para decirle a angular que los input del html son parte del formulario
+hay que agregarle el ngModel y un name que puede ser cualquiera para identificar 
+al campo
+
+ahora si escribo algo en el campo y le doy en guardar por consola voy a ver el valor 
+
+para que no se tenga que ver los valores tocando el boton guardar, se crea un 
+div para Valid
+miFormulario.valid me dice si es true o flase
+
+para que el formulario no de autosugerencias que es propio del html
+se pone la propiedad del formulario en autocomplete="off"
+
+
+y podemos ver en el Valid que tenemos acceso a todos los campos del formulario facilmente
+veo que cambian 
+
+los name tienen que ser unicos del formulario no pueden ser duplicados
+
+por el type que ponga en el input, va a ser tratado por java script a partir por ese 
+tipo y lo vemos en el Valid como se imprime, con o sin comillas
+
+vemos que siempre el valid esta en true,
+hay que controlar eso y se hace por el html porque es aproximacion por template
+y solamente tendria que poner required en las propiedaes del input para que se 
+determine si es false o true
+
+pero para validaciones mas complejas por ejemplo que un valor no puede ser negativo
+requiere mas trabajo hacerlo por aproximacion por template
+
+_______________________
+
+TEMPLATE MOSTRAR MENSAJES DE ERROR
+
+se agregan para ver propiedades pristine, touched
+
+pristine es que no se han modificado las valores del formulario desde que se ha presentado
+al usuario
+
+el touch es cuando se toca algun campo
+
+una validacion que se puede hacer que es propia de html es el minlength=3
+no se pasa a true hasta que tenga al menos 3 valores
+
+para mostrar el mensaje de alerta que debe ser de 3 letras cuando sea necesario se puede 
+utilizar el ngIF
+
+para ver el estado de las validaciones, se puede entrar en controls-producto-errors
+si sla en null no hay errores, la propiedad del fomulario
+
+los formularios por template se crean cuando son renderizados
+
+y hasta que llega al span Debe de ser de 3 letras todavia no se crea nada
+por eso con controls.producto.invalid da error por eso no se ve el producto
+
+por eso se le agrega al producto el ?
+y la otro validacion seria preguntar si fue tocado el formulario
+
+*ngIf="miFormulario.controls.producto.invalid &&
+                                miFormulario.controls.producto.touched"
+
+_____________________________
+
+VIEWCHILD
+
+hacer esa validacion tantas veces es un viaje por eso se hace un metodo para eso
+ahora hay uqe acceder a la referencia al formulario desde el ts
+
+podemos usar el decorador Input para recibir el elemento que viene del elemento
+padre 
+
+despues esta el output para emitir un elemento
+
+y tenemos tambien 
+el decorador @ViewChild() y le pasamos como parametro lo que queremos buscar
+si quiero algo que esta haciendo referencia local como el formulario, lo llamamos
+con el decorador
+
+si marca error por que la propiedad NgForm no se inicializo se le coloca el !
+indicando que siempre va a tener un valor
+y en el metodo guardar no va hacer falta mandarle el formulario
+
+
+ahora esa validacion se va hacer desde el ts o sea una funicion para preguntarle al formulario sobre el valid
+y en el ngIf llamamos al funcion nombreValido
+
+puede dar error porque todavia el formulario no se renderizo
+asi que se pregunta por el formulario si esta agregandole el ?
+
+_________________________
+
+TEMPLATE VALIDAR NUMERO IGUAL MAYOR A 0
+
+hacer lo mismo que el anterior pero para el campo precio
+
+no dejar hacer el submit si no estan los datos cargados
+si no es valido el formulario se desabilita el boton seria
+[disabled] = "miFormulario.invalid"
+
+de esta forma se habilita el boton guardar cuando
+el campo producto y precio son validos
+
+_____________________________
+
+DIRECTIVAS PERSONALIZADAS
+CUSTOMNIN 
 

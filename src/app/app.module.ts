@@ -4,21 +4,21 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
-import { BasicosComponent } from './template/basicos/basicos.component';
-import { DinamicosComponent } from './template/dinamicos/dinamicos.component';
-import { SwitchesComponent } from './template/switches/switches.component';
+import { TemplateModule } from './template/template.module';
+import { ReactiveModule } from './reactive/reactive.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    BasicosComponent,
-    DinamicosComponent,
-    SwitchesComponent
+ 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    TemplateModule,
+    ReactiveModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

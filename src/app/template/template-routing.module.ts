@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BasicosComponent } from './basicos/basicos.component';
-import { DinamicosComponent } from './dinamicos/dinamicos.component';
-import { SwitchesComponent } from './switches/switches.component';
+import { BasicosComponentt } from './basicos/basicos.component';
+import { DinamicosComponentt } from './dinamicos/dinamicos.component';
+import { SwitchesComponentt } from './switches/switches.component';
 
 const routes: Routes = [
   {
     path:'',
     children:[
-      { path:'basicos', component: BasicosComponent},
-      { path:'dinamicos', component: DinamicosComponent},
-      { path:'switches', component: SwitchesComponent},
-      { path:'basicos', component: BasicosComponent},
+      { path:'basicos', component: BasicosComponentt},
+      { path:'dinamicos', component: DinamicosComponentt},
+      { path:'switches', component: SwitchesComponentt},
+      { path:'basicos', component: BasicosComponentt},
       {path:'**', redirectTo: 'basicos'},
     ]
   }
