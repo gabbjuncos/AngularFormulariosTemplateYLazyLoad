@@ -339,3 +339,18 @@ _____________________________
 DIRECTIVAS PERSONALIZADAS
 CUSTOMNIN 
 
+hacer una validacion automatica, que valide que el valor del campo Precio
+si es menor a a 0, que al hacer el click en guardar no se envie el post
+esto esta complicado por aprox por template
+hay que usar direcctivas especializadas
+en formularios reactive no hacen falta
+
+se crea la directiva, creando un archivo
+custom-min.directive.ts en la carpeta directives, se hace manualemnte
+el .directive.ts no le dice a angular que es una directiva, nomas a nosostros
+
+lo que le dice a angular que es una directiva es la clase CustomDirective
+se agrega arriba el @Directive()
+
+las directivas necesitan un selector , es decir como lo vamos a utiliza
+min 3:13
