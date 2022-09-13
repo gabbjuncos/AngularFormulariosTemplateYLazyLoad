@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { BasicosComponentt } from './basicos/basicos.component';
 import { DinamicosComponentt } from './dinamicos/dinamicos.component';
 import { SwitchesComponentt } from './switches/switches.component';
+import { CustomMinDirective } from './directives/custom-min.directives';
 
 
 
@@ -14,6 +15,7 @@ import { SwitchesComponentt } from './switches/switches.component';
     BasicosComponentt,
     DinamicosComponentt,
     SwitchesComponentt,
+    CustomMinDirective
   ],
   imports: [
     CommonModule,

@@ -10,13 +10,25 @@ export class BasicosComponentt implements OnInit {
 
   @ViewChild('miFormulario') miFormulario!:NgForm;
 
+  initForm = {
+    producto: 'RTX 4080ti',
+    precio: 10,
+    existencias:10
+  }
+
   constructor() { }
 
   ngOnInit(): void {
   }
   guardar(){
-    console.log(this.miFormulario)
+    //console.log(this.miFormulario)
     //console.log(this.miFormulario.controls["producto"].invalid)
+    console.log('Posteo correcto');
+    this.miFormulario.resetForm({
+      producto:'Algo',
+      precio:0,
+      existencias:0
+    })
   }
   // valida si el campo producto es valido y si fue tocado
   nombreValido():boolean{

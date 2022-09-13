@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DinamicosComponentt implements OnInit {
 
+
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  guardar(){
+    console.log("formulario posteado")
+
+  }
+
+ 
 
 }

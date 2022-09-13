@@ -352,5 +352,80 @@ el .directive.ts no le dice a angular que es una directiva, nomas a nosostros
 lo que le dice a angular que es una directiva es la clase CustomDirective
 se agrega arriba el @Directive()
 
-las directivas necesitan un selector , es decir como lo vamos a utiliza
-min 3:13
+las directivas necesitan un selector , es decir como lo vamos a utilizar
+en basicos.component.html en existentes
+
+se le dice al selector como va a ser la formo para utilizar la directiva especializada
+se le agrega la directiva especializada customMin y de esta forma se puede extender el comportameinto
+del input y hacer la validaciones que quiera
+cuando pase por el customMin se va a ejecutar el custom.min.directive.ts
+y se usa la propiedad [minimo]
+
+en el custom.min.directive.ts se define el selector para decirle a que se le va a aplicar la directiva especializada
+y tambien el selector tiene que tner el ngModel
+'[customMin][ngModel]'
+
+ahora se  necesita recibir el minimo = 0 desde la directiva
+usando la directiva input para poderlo recibir del padre
+
+a diferencia que los servicios, que estan proveidos en el root, las directivas no estan proveidas
+hay que incluirlas en el module correspondiente, que seria en este caso en el template module, hay que declararla ahi
+
+para que la directiva implemente algo, por eso muestra en la consola undefined
+asi que hay que implementar el validator en la directiva personalizada
+es un obj de angular para hacer este tipo de validaciones
+como el required, el min length, etc, esoes el validator propiamente
+
+el control hay que pasarlo por parametor a la funcion de validate, el control seria el formControl
+
+luego en la directiva @Directive, tambien hay que especificar que servicio necesito inyectar
+que es el NG_VALIDATORS
+y el useExisting que es el nombre de la clase CustomMinDirective
+y el multi en true
+
+y se tendira acceso al minimo 
+
+tambien re tendria que agregar la propiedad requiered para que no lo deje postear si no esta cargado ese campo
+y se habilita el boton cuando se a un valor valido para el campo existencias
+
+que devuelva un null significa que no hay error 
+
+Y EL POSTEO LO HACE MOSTRANDO LO QUE SE ENVIAR
+PERO AHI YA ENTRA LO QUE ES LE BACKEND
+
+para resetar el formulario luego de dar en guardar
+this.miFormulario.resetForm();
+pone a pristine en true y el touched en false
+y eso indica uqe no se modifico el formulario luego del posteo
+pristine en true significa que no se modifico el formulario desde el momento que se presento
+el formulario 
+
+___________________________
+
+TEMPLATE LIMPIAR EL FORMULARIO y hacer que una vez que se postea queden valores por defecto 
+en e formulario
+
+se agrega una propiedad en basicos ts
+para tener los valores que van a ser por defecto 
+
+se tiene que usar el ngModel para asignarle valores en el campo correspondiente
+[ngModel]
+
+__________________
+
+template formularios dinamicos y arreglos
+
+la clase col-sm-3 col-form-label de bootstrap me ayuda a que sea responsive
+
+class="col-sm-12" para que tome todo el espacio de una 
+
+se tiene que mostrar el mensaje en rojo si no hay nada ingresado en el campo nombre de persona
+y ademas que quede inhabilitado el boton si no hay nada en ese campo requerido
+
+video 16.13
+min 6.11
+
+
+
+
+
