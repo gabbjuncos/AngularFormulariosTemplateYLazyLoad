@@ -422,10 +422,149 @@ class="col-sm-12" para que tome todo el espacio de una
 se tiene que mostrar el mensaje en rojo si no hay nada ingresado en el campo nombre de persona
 y ademas que quede inhabilitado el boton si no hay nada en ese campo requerido
 
-video 16.13
-min 6.11
+primero hacer referencia local al formulario en dinamicos.comopnente.html
+#miFormulario="ngForm"
+ahora para poder asociarlo necesito las propiedades 
+name
+ngModel
+required
+
+y se agrega en la condiciones el touched si se toca y no se pone nada que salga el alerta 
+en el span
+
+se quiere agregar un campo tipo input group
+button addons en bootstrap
+
+___________________
+
+14.AGREGAR ELEMENTOS DE FORMA DINAMICA
+
+en el dinamicos.components
+se crean las interfaces persona y favorito
+
+se crea un obj inicializar persona
+
+par aasignarle un valor al campo nombre
+uso na propiedad ngModel entre [] [ngModel]
+
+para que lea los valores de favoritos y agregue un campo para cada uno 
+se hace un ngfor
+se le asigna al ngModel
+pero en name hay que usar interpolacion de string para colocar la posicion
+indice del mismo y tengan difererntes nombres los name para los campos
+
+name= "favorito_{{i}}"
+
+para ver que cuando se cambie los valores de favoritos
+se cambien la lista agrega un span para ver esos elementos mejor por pantalla
+para verlos tengo que asociarlos y emitir sus valores
+
+se agrega el required para los campos de favoritos asi se desabilita 
+el boton guardar para el caso en que no tenga nada 
+
+se le agrega el  () para emitir al ngModel para que cambie a medida que se cambia 
+los valores de los campos
+
+_______________
+
+VIDEO 15 ELIMINAR ELEMENTO CREADO DE FORMA DINAMICA
+
+para agregar un boton en cada campo del favorito para eliminarlo
+se utiliza el group
+
+________________________
+
+video 16 agregar juegos favoritos
+
+en el boton agregar favorito
+se agrega para emitir nuevoJuego
+[(ngModel)]="nuevoJuego"
 
 
+para ejecutar el metodo agregar juego cuando se presione enter
+se agrega como propiedas el (keyup.enter)
 
+________________________________
 
+17 - template radio, check y switches
 
+en sidemenu component se agrega style 
+li{
+    cursor: pointer;
+}
+para ver la manito en los que son enlaces
+
+se realiza este ejercicio en el switches
+se busca en el bootstrap check an radios
+
+https://getbootstrap.com/docs/5.2/forms/checks-radios/#checks
+
+se define el formulario y se lo asigna localmente #miFormulario="ngForm"
+
+se crea el contendedor para el radio
+como defino un row lo que viene es columna
+
+el id y el for es para que al hacerle click a la palabra tambien lo tome 
+lo importante de los radios es que el name sea igual radioGenero en el for
+el for y dario debe ser el mismo para un input
+
+se quita la propiedad check  que se tilda una por defecto
+el check se va a manejar por angular
+
+se hace para un switch
+
+en ralidad estos switch de bootstrap son iguales a los check pero por las clases de bootstrap 
+nomas se ven diferentes
+
+copio y pego
+
+agrega otr check
+
+la idea es que este tildado el Terminos y condiciones para que se pueda hacer algo 
+
+y se agrega un boton
+
+ahora con haberle colocado la referncia #miFormulario="ngForm"
+angular ya tiene el control al formulario
+
+falta del ngModel para los campos
+
+____________________________
+
+18- TEMPLATE VALIDANDO RADIOS, CHECKS Y SWITCHES
+
+para obligar a la persona a seleccionar algo antes del post del boton guardar 
+
+se define en switches component ts, un obj persona valor en genero F
+para que reconosca que el F es de femenino
+
+se agrega el value en los input
+
+hay que agregar en el input la propiedad caja de banandas para que emita el valor
+
+[(ngModel)] = "persona.genero"
+
+y por defecto se va a ver que femenino esta seleccionado en el check
+
+se coloca span para ver en tiempo real los valores por pantalla
+
+y se ve el vamor de radio genero  que va cambiando
+
+al agregarle el required en los input
+sale que el formulario no es valido
+
+y tambien para que no se habilite el boton si el formulario no es valido
+
+para que el switch quede alineado 
+form-check form-switch mt-2
+
+para que en notifiaciones se emita y escuche valores 
+[(ngModel)]="persona.notifiaciones"
+hay que agregarle el name "notificaciones"
+
+se puede dejarlo al atributo en true desde el ts switch component
+
+se agrega la condicion terminosYCondiciones y por defecto se la deja en false
+
+se agrega el name terminosYcondiciones 
+y para el campo se coloca el name 
