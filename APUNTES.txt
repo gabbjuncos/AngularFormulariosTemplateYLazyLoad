@@ -568,3 +568,17 @@ se agrega la condicion terminosYCondiciones y por defecto se la deja en false
 
 se agrega el name terminosYcondiciones 
 y para el campo se coloca el name 
+
+
+______________________
+
+FORMULARIOS REACTIVOS
+LA LOGICA ESTA EN EL TYPE SCRIPT Y ESTA MAS FACIL PARA HACER LOS GETTERS Y MOSTRAR MENSAJES 
+DE VALIDACIONES POR PANTALLA
+
+copia y todo lo de basicos component de template y lo pega en el de reactive
+y se va sacandolo tenga error
+
+lo mismo para dinamicos y switches
+
+quede en el video 17.2 min a 2.16 de terminar
