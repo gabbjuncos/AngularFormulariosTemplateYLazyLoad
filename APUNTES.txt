@@ -581,4 +581,147 @@ y se va sacandolo tenga error
 
 lo mismo para dinamicos y switches
 
-quede en el video 17.2 min a 2.16 de terminar
+__________________
+
+
+PRIMEROS PASOS EN FORMULARIO REACTIVOS
+
+en basicos html y ts
+la idea es que con los formularios reactivos, el html este lo mas simple posible
+
+para integrar los formulario reactivos en el modulo, hay que importarlo en ese modulo
+en reactive module
+y en los import se importa el ReactiveFormsModule
+
+si no vamos a usar el ngmodel FormsModule, no se importa
+y solo se usa formularios reactivos
+
+lo recomendado es usar uno solo de los 2, un solo tipo de formulario por modulo
+el de aproximacion por templete , angular hace todo el formulario por mi
+
+con reactive forms hay que indicador todo, este es el formulario, tiene esta aparciencia, estos
+son los controles, etc
+
+se define en el ts el FormGroup
+con los controrls que son los campos
+
+y en el html se le asocia el formulario
+
+hay que indicar el input que responde al control
+con el  formControlName y se le asigna el nombre del ts del formulario
+
+pristine en true cuando no se cambio el valor por defecto de formulario
+
+__________________
+
+se agregan los campos de el formgroup del formulario
+se le pone algunos valores por defecto si se quiere
+y se le indica a que campo del html hace referencia
+en el input con el form-control se hace referencia
+se agrega formControlName en los input y entre comillas se agrega el nombre del campo
+en formgroup del ts
+
+FORMBUILDER es para crear formularios bastantes complejos, porque si tengo muchos campos
+tendria que agregar varios formControl en el formGroup
+nos ayuda a no tener que usar el new por que es redundante
+
+el formbuilder es un servicio y hay que inyectarlo en el contructor
+se deja comnetada lo hecho anterior para los campos
+y se crea otro usando el constructor
+y se ponen los campos como arreglos
+
+y de esta forma es mas claro a la vista
+
+_________________
+
+VALIDACIONES BASICAS . FORMS VALIDATOR
+
+validaros sincronos, validadores que se ejecutan cuando el usuario esta tocando una tecla
+es como disptara funciones de java script
+
+el validor se puede ejecutar a destiempo o en otro hilo de tiempo para validar algo y luego
+regresar para saber si es valido o no
+
+para ejecutar un validadro sincrono, ejecuto un validador requiere se lo hace
+escribiendo Validators.required y ver que si no tiene valor se ve en el print de la pantalla
+valid en false
+si se ponen una segunda coma para el 3er parametro ahi estamos definiendo un validadro asincrono
+
+asi que si quiero varios validadeores sincronoes los tengo que poner entre corchetes
+
+y luego se agrega el disabled si es invalido
+en el boton de guardar 
+
+
+______________
+
+mostrar mensajes de error
+
+para que no aparesca el mensaje de error cuando es correcto
+
+hay que usar el ngIf en los span para mostrar los mensajes de error
+
+al hacer el miFormulario.controls.nombre.errors para preguntar si tiene errores
+y no hace falta hacer validacion con el ? porque el formulario se creo antes que 
+preguntar por validaciones y tambien se le agrega la validacion por touch
+
+esto es parecido a la validaciones por template en el html para mostrar mensajes de error
+pero por reactivos tenemos algo adicional, hacer una funcion para validar
+para evaluar si el campo es valido o no 
+
+se puede hacer una funcio general para todos los campos, ya que es un objeto formGroup
+en la funcion se pregunta por si tiene errores ese campo o si se toco y devuelve un true o false
+
+y se manda comp parametro el input que sea
+y se llama esa funcion, desde el html pasando el nombre del campo
+ya tendria las validaciones en los campos
+realmente no es que este chocando con la validacion minima , primero hace el required primero
+y luego con el valor que se esta ingresando
+
+se lo ve agregando al final para ver lo que pasa en el html con el precio
+mostrando el error por eso muestra null ne precio json del html, porque no hay errores
+
+____________________
+
+SUBMIT DEL FORMULARIO
+
+se quita la validacion del boton por que era de demostracion
+
+como es del tipo submit al hacer click se dispara el submit
+se agrega el evento ngSubmit en el formulario
+
+para mostrar el mensaje de error es que se cumplan las 2 condiciones del metodo campoEsValido
+que no tenga errores y que sea tocado
+
+se quiere hacer que cuando se haga click en guardar y no haya campos se deberia mostrar los mensajes de error
+tambien
+
+se agrega la funcionalidad que se fuerze el tocado de los campos aunque no se hayan tocado y pero se preciono
+en guardar, para que salga el mensaje de error ya que los campos estaria como tocados y ademas estan los
+errores de no estar con valores validos
+
+y cuando hay algun error se quiere que se limpien todos los campos
+con this.miFormulario.reset();
+
+si queremos inicializar el formulario con algun valor
+se implementa el ngOnInit basicos.component.ts
+
+debajo del constructor se agrega el ngOnInit
+y se dice miFormulario.SerValue
+
+el problema es que tienen que esta todos los datos del formulario definido en el group
+y por ejemplo un id que se puede no tener momentaneamente, va a rebentar
+
+con el reset no hace falta indicar todos los campos, nomas los que quiero
+los vuelve a los valores por defecto que quiera
+this.miFormulario.reset(){
+	nombre: 'RTX 4080ti',
+	precio:1600
+}
+
+por eso prefiere usar el reset para establecer valores al formulario porddefcto
+porque no hace falta indicar todos los campos con valores definidos en el formGroup
+
+
+
+
